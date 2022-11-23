@@ -35,9 +35,9 @@
           <br>
           <a href="#/add-project" id="blog"><b-icon icon="folder-plus" align="left"></b-icon>Projects</a>
           <br>
-          <a href="#/project-teams" id="projects"><b-icon icon="diagram-3" align="left"></b-icon>Teams</a>
+          <a href="#/team" id="projects"><b-icon icon="diagram-3" align="left"></b-icon>Teams</a>
           <br>
-          <a href="#/task" id="contact"><b-icon icon="clipboard" align="left"></b-icon>Tasks</a>
+          <a href="#/hours" id="contact"><b-icon icon="clipboard" align="left"></b-icon>Hours</a>
         </div>
         </div>
       <router-view></router-view>
