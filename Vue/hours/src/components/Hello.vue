@@ -51,7 +51,7 @@
   
   <style>
   b-footer { 
-  margin-top: 200px;
+  margin-top: 80px;
   display: block; 
   padding: 0 16px 0 24px;
   background-color: #28C69F; 

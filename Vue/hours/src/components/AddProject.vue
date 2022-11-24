@@ -33,7 +33,7 @@
       <br>
       <br>
       <b-button v-b-modal.modal-1>Add Project</b-button>
-  <b-modal id="modal-1" title="Add Project" >
+  <b-modal id="modal-1" title="Add Project" hide-footer>
     <form @submit.prevent="createAddProject">
               <b-form-group label="Project">
                 <b-form-input type="text" v-model="model.project"></b-form-input>

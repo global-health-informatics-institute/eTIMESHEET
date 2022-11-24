@@ -5,6 +5,7 @@ namespace AspNetCore
   public class Hour
   {
     public int Id { get; set; }
+     public AddProject AddProject { get; set; }
     public string? Task { get; set; }
     public int Hours { get; set; }
     public int Minutes { get; set; }

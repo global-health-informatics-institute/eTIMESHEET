@@ -35,7 +35,7 @@
       <br>
       <br>
       <b-button v-b-modal.modal-1>Add Member</b-button>
-<b-modal id="modal-1" title="Add member" >
+<b-modal id="modal-1" title="Add member" hide-footer >
             <form @submit.prevent="createFoodRecord">
               <b-form-group label="AddProjectId" style="color: #28c69f">
                 <b-form-input type="text" v-model="model.project"></b-form-input>
