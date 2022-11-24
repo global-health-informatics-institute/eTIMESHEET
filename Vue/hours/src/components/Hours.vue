@@ -39,13 +39,13 @@
                 <b-form-input type="text" v-model="model.task"></b-form-input>
               </b-form-group>
               <b-form-group label="Hours">
-                <b-form-input v-model="adddata.number1"  type="number" class="form-control"></b-form-input>
+                <b-form-input v-model="model.hours"  type="number" class="form-control"></b-form-input>
               </b-form-group>
               <b-form-group label="Minutes">
-                <b-form-input v-model="adddata.number2"  type="number" class="form-control"></b-form-input>
+                <b-form-input v-model="model.minutes"  type="number" class="form-control"></b-form-input>
               </b-form-group>
-              <b-form-group label="Total">
-                <h3>{{ total }}</h3>
+              <b-form-group label="Total" v-model="model.total">
+                <div class="mt-2">{{ total }}</div>
               </b-form-group>
               <div>
                 <b-btn type="submit" variant="success">Save Record</b-btn>
@@ -64,9 +64,9 @@
       data() {
         return {
         result: {},
-        adddata:{
-        number1: '',
-        number2: ''
+        model:{
+        hours: '',
+        minutes: ''
       },
           loading: false,
           records: [],
@@ -76,7 +76,7 @@
       computed: {
        total:function()
      {
-          return parseFloat(this.adddata.number1) + parseFloat(this.adddata.number2/60);
+          return parseFloat(this.model.hours) + parseFloat(this.model.minutes/60);
 
      }
 

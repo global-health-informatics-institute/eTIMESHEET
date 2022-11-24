@@ -6,12 +6,15 @@ import App from './App'
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import {  BootstrapVueIcons }  from 'bootstrap-vue'
 
 import { BSidebar } from 'bootstrap-vue'
 
 import router from './router'
 
 Vue.use(BootstrapVue)
+
+Vue.use(BootstrapVueIcons)
 
 Vue.component('b-sidebar', BSidebar)
 
