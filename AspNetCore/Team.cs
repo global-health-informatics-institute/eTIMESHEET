@@ -2,10 +2,10 @@ using System;
 
 namespace AspNetCore
 {
-  public class ProjectTeam
+  public class Team
   {
   public int Id { get; set; } 
-  public int AddProjectId { get; set; }
+  public string? Name { get; set; }
   public string? Member { get; set; }
   public DateOnly Start { get; set; }
   public DateOnly End { get; set; }

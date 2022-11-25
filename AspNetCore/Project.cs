@@ -1,10 +1,10 @@
 using System.Data;
 namespace AspNetCore
 {
-  public class AddProject
+  public class Project
   {
-  public int AddProjectId { get; set; } 
-  public string? Project { get; set; }
+  public int Id { get; set; } 
+  public string? Name { get; set; }
   public string? Coordinator { get; set; }
   public DateOnly Start { get; set; }
    public DateOnly End { get; set; }

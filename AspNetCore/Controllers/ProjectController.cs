@@ -7,32 +7,32 @@ namespace AspNetCore.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  public class AddProjectController : ControllerBase
+  public class ProjectController : ControllerBase
   {
     private readonly ApplicationDbContext _dbContext;
 
-    public AddProjectController(ApplicationDbContext dbContext)
+    public ProjectController(ApplicationDbContext dbContext)
     {
       _dbContext = dbContext;
     }
 
     // GET api/foodrecords
     [HttpGet]
-    public async Task<ActionResult<List<AddProject>>> Get()
+    public async Task<ActionResult<List<Project>>> Get()
     {
-      return await _dbContext.AddProjects.ToListAsync();
+      return await _dbContext.Projects.ToListAsync();
     }
 
     // GET api/foodrecords/5
-    [HttpGet("{AddProjectid}")]
-    public async Task<ActionResult<AddProject>> Get(int AddProjectid)
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Project>> Get(int id)
     {
-      return await _dbContext.AddProjects.FindAsync(AddProjectid);
+      return await _dbContext.Projects.FindAsync(id);
     }
 
     // POST api/foodrecords
     [HttpPost]
-    public async Task Post(AddProject model)
+    public async Task Post(Project model)
     {
       await _dbContext.AddAsync(model);
       
@@ -40,16 +40,16 @@ namespace AspNetCore.Controllers
     }
 
     // PUT api/foodrecords/5
-    [HttpPut("{AddProjectid}")]
-    public async Task<ActionResult> Put(int AddProjectid, AddProject model)
+    [HttpPut("{id}")]
+    public async Task<ActionResult> Put(int id, Project model)
     {
-      var exists = await _dbContext.AddProjects.AnyAsync(f => f.AddProjectId == AddProjectid);
+      var exists = await _dbContext.Projects.AnyAsync(f => f.Id == id);
       if (!exists)
       {
         return NotFound();
       }
 
-      _dbContext.AddProjects.Update(model);
+      _dbContext.Projects.Update(model);
       
       await _dbContext.SaveChangesAsync();
 

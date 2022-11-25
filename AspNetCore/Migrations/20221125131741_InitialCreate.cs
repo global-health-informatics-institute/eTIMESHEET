@@ -10,22 +10,6 @@ namespace aspnetcore.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "AddProjects",
-                columns: table => new
-                {
-                    AddProjectId = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Project = table.Column<string>(type: "TEXT", nullable: true),
-                    Coordinator = table.Column<string>(type: "TEXT", nullable: true),
-                    Start = table.Column<DateOnly>(type: "TEXT", nullable: false),
-                    End = table.Column<DateOnly>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AddProjects", x => x.AddProjectId);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Hours",
                 columns: table => new
                 {
@@ -42,32 +26,48 @@ namespace aspnetcore.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ProjectTeams",
+                name: "Projects",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    AddProjectId = table.Column<int>(type: "INTEGER", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Coordinator = table.Column<string>(type: "TEXT", nullable: true),
+                    Start = table.Column<DateOnly>(type: "TEXT", nullable: false),
+                    End = table.Column<DateOnly>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Projects", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Teams",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    ProjectName = table.Column<string>(type: "TEXT", nullable: true),
                     Member = table.Column<string>(type: "TEXT", nullable: true),
                     Start = table.Column<DateOnly>(type: "TEXT", nullable: false),
                     End = table.Column<DateOnly>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProjectTeams", x => x.Id);
+                    table.PrimaryKey("PK_Teams", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "AddProjects");
-
-            migrationBuilder.DropTable(
                 name: "Hours");
 
             migrationBuilder.DropTable(
-                name: "ProjectTeams");
+                name: "Projects");
+
+            migrationBuilder.DropTable(
+                name: "Teams");
         }
     }
 }

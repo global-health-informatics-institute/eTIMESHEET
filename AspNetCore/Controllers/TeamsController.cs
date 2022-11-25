@@ -18,21 +18,21 @@ namespace AspNetCore.Controllers
 
     // GET api/foodrecords
     [HttpGet]
-    public async Task<ActionResult<List<ProjectTeam>>> Get()
+    public async Task<ActionResult<List<Team>>> Get()
     {
-      return await _dbContext.ProjectTeams.ToListAsync();
+      return await _dbContext.Teams.ToListAsync();
     }
 
     // GET api/foodrecords/5
     [HttpGet("{id}")]
-    public async Task<ActionResult<ProjectTeam>> Get(string id)
+    public async Task<ActionResult<Team>> Get(string id)
     {
-      return await _dbContext.ProjectTeams.FindAsync(id);
+      return await _dbContext.Teams.FindAsync(id);
     }
 
     // POST api/foodrecords
     [HttpPost]
-    public async Task Post(ProjectTeam model)
+    public async Task Post(Team model)
     {
       await _dbContext.AddAsync(model);
       
@@ -41,15 +41,15 @@ namespace AspNetCore.Controllers
 
     // PUT api/foodrecords/5
     [HttpPut("{id}")]
-    public async Task<ActionResult> Put(int id, ProjectTeam model)
+    public async Task<ActionResult> Put(int id, Team model)
     {
-      var exists = await _dbContext.ProjectTeams.AnyAsync(f => f.Id == id);
+      var exists = await _dbContext.Teams.AnyAsync(f => f.Id == id);
       if (!exists)
       {
         return NotFound();
       }
 
-      _dbContext.ProjectTeams.Update(model);
+      _dbContext.Teams.Update(model);
       
       await _dbContext.SaveChangesAsync();
 
@@ -60,9 +60,9 @@ namespace AspNetCore.Controllers
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {
-      var entity = await _dbContext.ProjectTeams.FindAsync(id);
+      var entity = await _dbContext.Teams.FindAsync(id);
 
-      _dbContext.ProjectTeams.Remove(entity);
+      _dbContext.Teams.Remove(entity);
       
       await _dbContext.SaveChangesAsync();
       

@@ -9,9 +9,7 @@
               <tr>
                 <th>Project ID</th>
                 <th>Task</th>
-                <th>Hours</th>
-                <th>Minutes</th>
-                <th>Total</th>
+                <th>Time Spent</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
@@ -19,9 +17,7 @@
               <tr v-for="record in records" :key="record.id">
                 <td>{{ record.id }}</td>
                 <td>{{ record.task }}</td>
-                <td>{{ record.hours }}</td>
-                <td>{{ record.minutes }}</td>
-                <td>{{ record.total }}</td>
+                <td>{{ record.hours }} hrs {{ record.minutes }} mins</td>
                 <td class="text-right">
                   <a href="#" @click.prevent="updateFoodRecord(record)">Edit</a> -
                   <a href="#" @click.prevent="deleteFoodRecord(record.id)">Delete</a>
@@ -45,7 +41,7 @@
                 <b-form-input v-model="model.minutes"  type="number" class="form-control"></b-form-input>
               </b-form-group>
               <b-form-group label="Total" v-model="model.total">
-                <div class="mt-2">{{ total }}</div>
+                <div>{{ total }}</div>
               </b-form-group>
               <div>
                 <b-btn type="submit" variant="success">Save Record</b-btn>

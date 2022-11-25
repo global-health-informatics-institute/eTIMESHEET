@@ -16,14 +16,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="record in records" :key="record.AddProjectId">
-                <td>{{ record.AddProjectId }}</td>
-                <td>{{ record.project }}</td>
+              <tr v-for="record in records" :key="record.id">
+                <td>{{ record.id }}</td>
+                <td>{{ record.name }}</td>
                 <td>{{ record.coordinator }}</td>
                 <td>{{ record.start }}</td>
                 <td>{{ record.end }}</td>
                 <td class="text-right">
-                    <b-link record-addprojectid href="#team" ><b-icon icon="eye-fill"></b-icon>Review</b-link>
+                    <b-link record-projectid href="#team" ><b-icon icon="eye-fill"></b-icon>Review</b-link>
                   </td>
               </tr>
             </tbody>
@@ -36,7 +36,7 @@
   <b-modal id="modal-1" title="Add Project" hide-footer>
     <form @submit.prevent="createAddProject">
               <b-form-group label="Project">
-                <b-form-input type="text" v-model="model.project"></b-form-input>
+                <b-form-input type="text" v-model="model.name"></b-form-input>
               </b-form-group>
               <b-form-group label="Project Coordinator">
                 <b-form-select placeholder="Select Project Coordinator" v-model="model.coordinator">              

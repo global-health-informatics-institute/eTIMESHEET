@@ -17,29 +17,6 @@ namespace aspnetcore.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.10");
 
-            modelBuilder.Entity("AspNetCore.AddProject", b =>
-                {
-                    b.Property<int>("AddProjectId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Coordinator")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateOnly>("End")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Project")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateOnly>("Start")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("AddProjectId");
-
-                    b.ToTable("AddProjects");
-                });
-
             modelBuilder.Entity("AspNetCore.Hour", b =>
                 {
                     b.Property<int>("Id")
@@ -63,13 +40,33 @@ namespace aspnetcore.Migrations
                     b.ToTable("Hours");
                 });
 
-            modelBuilder.Entity("AspNetCore.ProjectTeam", b =>
+            modelBuilder.Entity("AspNetCore.Project", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("AddProjectId")
+                    b.Property<string>("Coordinator")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateOnly>("End")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateOnly>("Start")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Projects");
+                });
+
+            modelBuilder.Entity("AspNetCore.Team", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateOnly>("End")
@@ -78,12 +75,15 @@ namespace aspnetcore.Migrations
                     b.Property<string>("Member")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("ProjectName")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateOnly>("Start")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ProjectTeams");
+                    b.ToTable("Teams");
                 });
 #pragma warning restore 612, 618
         }
