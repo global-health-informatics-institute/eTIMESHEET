@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace aspnetcore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221125062327_InitialCreate")]
+    [Migration("20221125081017_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,7 +21,7 @@ namespace aspnetcore.Migrations
 
             modelBuilder.Entity("AspNetCore.AddProject", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AddProjectId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -37,7 +37,7 @@ namespace aspnetcore.Migrations
                     b.Property<DateOnly>("Start")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
+                    b.HasKey("AddProjectId");
 
                     b.ToTable("AddProjects");
                 });
@@ -71,13 +71,13 @@ namespace aspnetcore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("AddProjectId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateOnly>("End")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Member")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Project")
                         .HasColumnType("TEXT");
 
                     b.Property<DateOnly>("Start")

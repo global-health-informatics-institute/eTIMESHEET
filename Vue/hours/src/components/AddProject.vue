@@ -16,14 +16,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="record in records" :key="record.id">
-                <td>{{ record.id }}</td>
+              <tr v-for="record in records" :key="record.AddProjectId">
+                <td>{{ record.AddProjectId }}</td>
                 <td>{{ record.project }}</td>
                 <td>{{ record.coordinator }}</td>
                 <td>{{ record.start }}</td>
                 <td>{{ record.end }}</td>
                 <td class="text-right">
-                    <b-link record-id href="#/team" ><b-icon icon="eye-fill"></b-icon>Review</b-link>
+                    <b-link record-addprojectid href="#team" ><b-icon icon="eye-fill"></b-icon>Review</b-link>
                   </td>
               </tr>
             </tbody>

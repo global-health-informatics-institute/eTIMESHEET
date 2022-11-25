@@ -24,10 +24,10 @@ namespace AspNetCore.Controllers
     }
 
     // GET api/foodrecords/5
-    [HttpGet("{id}")]
-    public async Task<ActionResult<AddProject>> Get(string id)
+    [HttpGet("{AddProjectid}")]
+    public async Task<ActionResult<AddProject>> Get(int AddProjectid)
     {
-      return await _dbContext.AddProjects.FindAsync(id);
+      return await _dbContext.AddProjects.FindAsync(AddProjectid);
     }
 
     // POST api/foodrecords
@@ -40,10 +40,10 @@ namespace AspNetCore.Controllers
     }
 
     // PUT api/foodrecords/5
-    [HttpPut("{id}")]
-    public async Task<ActionResult> Put(int id, AddProject model)
+    [HttpPut("{AddProjectid}")]
+    public async Task<ActionResult> Put(int AddProjectid, AddProject model)
     {
-      var exists = await _dbContext.AddProjects.AnyAsync(f => f.Id == id);
+      var exists = await _dbContext.AddProjects.AnyAsync(f => f.AddProjectId == AddProjectid);
       if (!exists)
       {
         return NotFound();
@@ -55,18 +55,6 @@ namespace AspNetCore.Controllers
 
       return Ok();
 
-    }
-       // DELETE api/foodrecords/5
-    [HttpDelete("{id}")]
-    public async Task<ActionResult> Delete(int id)
-    {
-      var entity = await _dbContext.AddProjects.FindAsync(id);
-
-      _dbContext.AddProjects.Remove(entity);
-      
-      await _dbContext.SaveChangesAsync();
-      
-      return Ok();
     }
   }
 }

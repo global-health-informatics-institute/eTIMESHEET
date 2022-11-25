@@ -13,7 +13,7 @@ namespace aspnetcore.Migrations
                 name: "AddProjects",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                    AddProjectId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Project = table.Column<string>(type: "TEXT", nullable: true),
                     Coordinator = table.Column<string>(type: "TEXT", nullable: true),
@@ -22,7 +22,7 @@ namespace aspnetcore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AddProjects", x => x.Id);
+                    table.PrimaryKey("PK_AddProjects", x => x.AddProjectId);
                 });
 
             migrationBuilder.CreateTable(
@@ -47,7 +47,7 @@ namespace aspnetcore.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Project = table.Column<string>(type: "TEXT", nullable: true),
+                    AddProjectId = table.Column<int>(type: "INTEGER", nullable: false),
                     Member = table.Column<string>(type: "TEXT", nullable: true),
                     Start = table.Column<DateOnly>(type: "TEXT", nullable: false),
                     End = table.Column<DateOnly>(type: "TEXT", nullable: false)

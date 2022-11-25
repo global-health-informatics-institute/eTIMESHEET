@@ -19,7 +19,7 @@
             <tbody>
               <tr v-for="record in records" :key="record.id">
                 <td>{{ record.id }}</td>
-                <td>{{ record.project }}</td>
+                <td>{{ record.addprojectid}}</td>
                 <td>{{ record.member}}</td>
                 <td>{{ record.start }}</td>
                 <td>{{ record.end }}</td>
@@ -38,7 +38,7 @@
 <b-modal id="modal-1" title="Add member" hide-footer >
             <form @submit.prevent="createFoodRecord">
               <b-form-group label="AddProjectId" style="color: #28c69f">
-                <b-form-input type="text" v-model="model.project"></b-form-input>
+                <b-form-input type="number" v-model="model.addprojectid"></b-form-input>
               </b-form-group>
               <b-form-group label="Member Name" style="color: #28c69f">
                 <b-form-input type="text" v-model="model.member"></b-form-input>
