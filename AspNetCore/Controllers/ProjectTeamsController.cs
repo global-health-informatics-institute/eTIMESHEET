@@ -9,9 +9,9 @@ namespace AspNetCore.Controllers
   [ApiController]
   public class ProjectTeamsController : ControllerBase
   {
-    private readonly AppContext _dbContext;
+    private readonly ApplicationDbContext _dbContext;
 
-    public ProjectTeamsController(AppContext dbContext)
+    public ProjectTeamsController(ApplicationDbContext dbContext)
     {
       _dbContext = dbContext;
     }

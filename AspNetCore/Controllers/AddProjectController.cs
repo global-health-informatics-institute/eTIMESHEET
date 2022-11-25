@@ -9,9 +9,9 @@ namespace AspNetCore.Controllers
   [ApiController]
   public class AddProjectController : ControllerBase
   {
-    private readonly DatabaseContext _dbContext;
+    private readonly ApplicationDbContext _dbContext;
 
-    public AddProjectController(DatabaseContext dbContext)
+    public AddProjectController(ApplicationDbContext dbContext)
     {
       _dbContext = dbContext;
     }

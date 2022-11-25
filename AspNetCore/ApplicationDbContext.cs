@@ -7,5 +7,7 @@ namespace AspNetCore {
     { }
 
     public DbSet<Hour> Hours { get; set; } = null!;
+    public DbSet<ProjectTeam> ProjectTeams { get; set; } = null!;
+    public DbSet<AddProject> AddProjects { get; set; } =null!;
   }
 }
