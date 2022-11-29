@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace aspnetcore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221125131741_InitialCreate")]
+    [Migration("20221128063549_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -77,7 +77,7 @@ namespace aspnetcore.Migrations
                     b.Property<string>("Member")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ProjectName")
+                    b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
                     b.Property<DateOnly>("Start")

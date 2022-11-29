@@ -75,7 +75,7 @@ namespace aspnetcore.Migrations
                     b.Property<string>("Member")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("ProjectName")
+                    b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
                     b.Property<DateOnly>("Start")

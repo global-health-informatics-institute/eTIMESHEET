@@ -19,7 +19,7 @@
             <tbody>
               <tr v-for="record in records" :key="record.id">
                 <td>{{ record.id }}</td>
-                <td>{{ record.project}}</td>
+                <td>{{ record.name}}</td>
                 <td>{{ record.member}}</td>
                 <td>{{ record.start }}</td>
                 <td>{{ record.end }}</td>
@@ -38,10 +38,13 @@
 <b-modal id="modal-1" title="Add member" hide-footer >
             <form @submit.prevent="createFoodRecord">
               <b-form-group label="Project" style="color: #28c69f">
-                <b-form-select placeholder="Select Project" v-model="model.name">              
+                <b-form-select>
+                  <option v-for="item in records" :key="item.name">{{ item.name }}</option>
+                </b-form-select>
+                <!-- <b-form-select placeholder="Select Project" v-model="model.name">              
                   <option value="1">Informatics</option>
                   <option value="2">Oxygen Alliance</option>
-                </b-form-select>
+                </b-form-select> -->
               </b-form-group>
               <b-form-group label="Member Name" style="color: #28c69f">
                 <b-form-input type="text" v-model="model.member"></b-form-input>

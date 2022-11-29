@@ -47,7 +47,7 @@ namespace aspnetcore.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ProjectName = table.Column<string>(type: "TEXT", nullable: true),
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
                     Member = table.Column<string>(type: "TEXT", nullable: true),
                     Start = table.Column<DateOnly>(type: "TEXT", nullable: false),
                     End = table.Column<DateOnly>(type: "TEXT", nullable: false)
