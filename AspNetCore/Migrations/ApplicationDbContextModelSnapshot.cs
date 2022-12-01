@@ -75,15 +75,33 @@ namespace aspnetcore.Migrations
                     b.Property<string>("Member")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateOnly>("Start")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ProjectId");
+
                     b.ToTable("Teams");
+                });
+
+            modelBuilder.Entity("AspNetCore.Team", b =>
+                {
+                    b.HasOne("AspNetCore.Project", "Project")
+                        .WithMany("Teams")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Project");
+                });
+
+            modelBuilder.Entity("AspNetCore.Project", b =>
+                {
+                    b.Navigation("Teams");
                 });
 #pragma warning restore 612, 618
         }

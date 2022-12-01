@@ -47,15 +47,26 @@ namespace aspnetcore.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: true),
                     Member = table.Column<string>(type: "TEXT", nullable: true),
                     Start = table.Column<DateOnly>(type: "TEXT", nullable: false),
-                    End = table.Column<DateOnly>(type: "TEXT", nullable: false)
+                    End = table.Column<DateOnly>(type: "TEXT", nullable: false),
+                    ProjectId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Teams", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Teams_Projects_ProjectId",
+                        column: x => x.ProjectId,
+                        principalTable: "Projects",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Teams_ProjectId",
+                table: "Teams",
+                column: "ProjectId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -64,10 +75,10 @@ namespace aspnetcore.Migrations
                 name: "Hours");
 
             migrationBuilder.DropTable(
-                name: "Projects");
+                name: "Teams");
 
             migrationBuilder.DropTable(
-                name: "Teams");
+                name: "Projects");
         }
     }
 }

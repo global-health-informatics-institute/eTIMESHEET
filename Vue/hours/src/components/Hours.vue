@@ -19,7 +19,7 @@
                 <td>{{ record.task }}</td>
                 <td>{{ record.hours }} hrs {{ record.minutes }} mins</td>
                 <td class="text-right">
-                  <a href="#" @click.prevent="updateFoodRecord(record)">Edit</a> -
+                  <a href="#" @click.prevent="updateFoodRecord(record)" v-b-modal.modal-1>Edit</a> -
                   <a href="#" @click.prevent="deleteFoodRecord(record.id)">Delete</a>
                 </td>
               </tr>

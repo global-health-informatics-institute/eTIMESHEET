@@ -16,15 +16,16 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="record in records" :key="record.id">
-                <td>{{ record.id }}</td>
-                <td>{{ record.name }}</td>
-                <td>{{ record.coordinator }}</td>
-                <td>{{ record.start }}</td>
-                <td>{{ record.end }}</td>
+              <tr v-for="project in projects" :key="project.id">
+                <td>{{ project.id }}</td>
+                <td>{{ project.name }}</td>
+                <td>{{ project.coordinator }}</td>
+                <td>{{ project.start }}</td>
+                <td>{{ project.end }}</td>
                 <td class="text-right">
-                    <b-link record-projectid href="#team" ><b-icon icon="eye-fill"></b-icon>Review</b-link>
-                  </td>
+                    <b-link href="#/team" :key="project.id"><b-icon icon="eye-fill"></b-icon>Review</b-link>
+                     <!-- <a href="#" @click.prevent="(project.id)">Review</a> -->
+                </td>
               </tr>
             </tbody>
           </table>
@@ -67,7 +68,7 @@
       data() {
         return {
           loading: false,
-          records: [],
+          projects: [],
           model: {}
         };
       },
@@ -79,7 +80,7 @@
           this.loading = true
   
           try {
-            this.records = await api.getAll()
+            this.projects = await api.getAll()
           } finally {
             this.loading = false
           }

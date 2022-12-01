@@ -9,20 +9,20 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Project</th>
                 <th>Name</th>
                 <th>Member From</th>
                 <th>Member To</th>
+                <th>Project</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="record in records" :key="record.id">
                 <td>{{ record.id }}</td>
-                <td>{{ record.name}}</td>
                 <td>{{ record.member}}</td>
                 <td>{{ record.start }}</td>
                 <td>{{ record.end }}</td>
+                <td>{{ record.projectId}}</td>
                 <td class="text-right">
                 <a href="#" @click.prevent="updateFoodRecord(record)" v-b-modal.modal-1><b-icon icon="pencil-square"></b-icon>Edit</a> - 
                 <a href="#" @click.prevent="deleteFoodRecord(record.id)"><b-icon icon="trash-fill"></b-icon>Delete</a>
@@ -37,15 +37,17 @@
       <b-button v-b-modal.modal-1>Add Member</b-button>
 <b-modal id="modal-1" title="Add member" hide-footer >
             <form @submit.prevent="createFoodRecord">
-              <b-form-group label="Project" style="color: #28c69f">
+              <!-- <b-form-group label="Project" style="color: #28c69f">
+                <b-form-input type="number" v-model="model.name"></b-form-input>
                 <b-form-select>
                   <option v-for="item in records" :key="item.name">{{ item.name }}</option>
-                </b-form-select>
+                </b-form-select> -->
                 <!-- <b-form-select placeholder="Select Project" v-model="model.name">              
                   <option value="1">Informatics</option>
                   <option value="2">Oxygen Alliance</option>
-                </b-form-select> -->
-              </b-form-group>
+                  <option value="3">Open O2</option>
+                </b-form-select>
+              </b-form-group> -->
               <b-form-group label="Member Name" style="color: #28c69f">
                 <b-form-input type="text" v-model="model.member"></b-form-input>
               </b-form-group>
@@ -54,6 +56,17 @@
               </b-form-group>
               <b-form-group label="Membership Ends" style="color: #28c69f">
                 <b-form-input rows="4" v-model="model.end" type="date"></b-form-input>
+              </b-form-group>
+              <b-form-group label="Project" style="color: #28c69f">
+                <!-- <b-form-select>
+                  <option v-for="item in records" :key="item.projectId">{{ item.projectId }}</option>
+                </b-form-select> -->
+                <b-form-select placeholder="Select Project" v-model="model.projectId">              
+                  <option value="1">Informatics</option>
+                  <option value="2">Oxygen Alliance</option>
+                  <option value="3">Open O2</option>
+                </b-form-select>
+                <!-- <b-form-input type="number" v-model="model.projectId"></b-form-input> -->
               </b-form-group>
               <div>
                 <b-btn type="submit" variant="success">Save Record</b-btn>

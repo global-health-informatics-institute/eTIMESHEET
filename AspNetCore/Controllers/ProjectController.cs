@@ -54,7 +54,18 @@ namespace AspNetCore.Controllers
       await _dbContext.SaveChangesAsync();
 
       return Ok();
+    }
+     // DELETE api/foodrecords/5
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> Delete(int id)
+    {
+      var entity = await _dbContext.Projects.FindAsync(id);
 
+      _dbContext.Projects.Remove(entity);
+      
+      await _dbContext.SaveChangesAsync();
+      
+      return Ok();
     }
   }
 }
