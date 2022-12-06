@@ -1,4 +1,5 @@
-using System.Data;
+using System;
+
 namespace AspNetCore
 {
   public class Project
@@ -7,8 +8,7 @@ namespace AspNetCore
   public string? Name { get; set; }
   public string? Coordinator { get; set; }
   public DateOnly Start { get; set; }
-   public DateOnly End { get; set; }
-  public List<Team> Teams { get; set; }
-} 
-
+  public DateOnly End { get; set; }
+  // public virtual Team Team { get; set; }=null!;
   }
+}

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 
 const client = axios.create({
-  baseURL: 'https://localhost:7279/api/project',
+  baseURL: 'https://localhost:7124/api/primary',
   json: true
 })
 
@@ -25,7 +25,8 @@ export default {
     update(id, data) {
       return this.execute('put', `/${id}`, data)
     },
-    delete(id, data) {
-      return this.execute('delete', `/${id}`, data)
+    delete(id) {
+      return this.execute('delete', `/${id}`)
     }
+  
   }

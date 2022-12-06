@@ -54,8 +54,9 @@ namespace AspNetCore.Controllers
       await _dbContext.SaveChangesAsync();
 
       return Ok();
+
     }
-     // DELETE api/foodrecords/5
+       // DELETE api/foodrecords/5
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {

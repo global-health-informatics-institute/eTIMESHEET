@@ -7,32 +7,32 @@ namespace AspNetCore.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  public class ProjectTeamsController : ControllerBase
+  public class HourController : ControllerBase
   {
     private readonly ApplicationDbContext _dbContext;
 
-    public ProjectTeamsController(ApplicationDbContext dbContext)
+    public HourController(ApplicationDbContext dbContext)
     {
       _dbContext = dbContext;
     }
 
     // GET api/foodrecords
     [HttpGet]
-    public async Task<ActionResult<List<Team>>> Get()
+    public async Task<ActionResult<List<Hour>>> Get()
     {
-      return await _dbContext.Teams.ToListAsync();
+      return await _dbContext.Hours.ToListAsync();
     }
 
     // GET api/foodrecords/5
     [HttpGet("{id}")]
-    public async Task<ActionResult<Team>> Get(string id)
+    public async Task<ActionResult<Hour>> Get(string id)
     {
-      return await _dbContext.Teams.FindAsync(id);
+      return await _dbContext.Hours.FindAsync(id);
     }
 
     // POST api/foodrecords
     [HttpPost]
-    public async Task Post(Team model)
+    public async Task Post(Hour model)
     {
       await _dbContext.AddAsync(model);
       
@@ -41,28 +41,28 @@ namespace AspNetCore.Controllers
 
     // PUT api/foodrecords/5
     [HttpPut("{id}")]
-    public async Task<ActionResult> Put(int id, Team model)
+    public async Task<ActionResult> Put(int id, Hour model)
     {
-      var exists = await _dbContext.Teams.AnyAsync(f => f.Id == id);
+      var exists = await _dbContext.Hours.AnyAsync(f => f.Id == id);
       if (!exists)
       {
         return NotFound();
       }
 
-      _dbContext.Teams.Update(model);
+      _dbContext.Hours.Update(model);
       
       await _dbContext.SaveChangesAsync();
 
       return Ok();
 
     }
-    // DELETE api/foodrecords/5
+       // DELETE api/foodrecords/5
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete(int id)
     {
-      var entity = await _dbContext.Teams.FindAsync(id);
+      var entity = await _dbContext.Hours.FindAsync(id);
 
-      _dbContext.Teams.Remove(entity);
+      _dbContext.Hours.Remove(entity);
       
       await _dbContext.SaveChangesAsync();
       

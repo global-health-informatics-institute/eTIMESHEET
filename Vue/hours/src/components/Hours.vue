@@ -7,17 +7,21 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>Project ID</th>
+                <th>ID</th>
+                <th>Member ID</th>
                 <th>Task</th>
                 <th>Time Spent</th>
+                <th>Date</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="record in records" :key="record.id">
                 <td>{{ record.id }}</td>
+                <td>{{ record.teamId }}</td>
                 <td>{{ record.task }}</td>
                 <td>{{ record.hours }} hrs {{ record.minutes }} mins</td>
+                <td> {{ record.date }}</td>
                 <td class="text-right">
                   <a href="#" @click.prevent="updateFoodRecord(record)" v-b-modal.modal-1>Edit</a> -
                   <a href="#" @click.prevent="deleteFoodRecord(record.id)">Delete</a>
@@ -31,6 +35,9 @@
             <b-modal id="modal-1" title="Add Project" hide-footer>
   <!-- Content -->
             <form @submit.prevent="createFoodRecord">
+              <b-form-group label="Member Id">
+                <b-form-input type="number" v-model="model.teamId"></b-form-input>
+              </b-form-group>
               <b-form-group label="Task">
                 <b-form-input type="text" v-model="model.task"></b-form-input>
               </b-form-group>
@@ -40,9 +47,12 @@
               <b-form-group label="Minutes">
                 <b-form-input v-model="model.minutes"  type="number" class="form-control"></b-form-input>
               </b-form-group>
-              <b-form-group label="Total" v-model="model.total">
-                <div>{{ total }}</div>
+              <b-form-group label="Date" style="color: #28c69f">
+                <b-form-input rows="4" v-model="model.date" type="date"></b-form-input>
               </b-form-group>
+              <!-- <b-form-group label="Total" v-model="model.total">
+                <div>{{ total }}</div>
+              </b-form-group> -->
               <div>
                 <b-btn type="submit" variant="success">Save Record</b-btn>
               </div>

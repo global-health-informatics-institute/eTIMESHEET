@@ -12,6 +12,7 @@
                 <th>Project Coordinator</th>
                 <th>Start Date</th>
                 <th>End Date</th>
+                <th>Details</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>
@@ -22,9 +23,10 @@
                 <td>{{ project.coordinator }}</td>
                 <td>{{ project.start }}</td>
                 <td>{{ project.end }}</td>
-                <td class="text-right">
-                    <b-link href="#/team" :key="project.id"><b-icon icon="eye-fill"></b-icon>Review</b-link>
-                     <!-- <a href="#" @click.prevent="(project.id)">Review</a> -->
+                <td>
+                    <router-link :to="`/primary/${project.id}`" class="btn btn-primary"><b-icon icon="eye-fill"></b-icon>Review</router-link>
+                     <!-- <a href="#/team" @click="model.id">Review</a> -->
+  
                 </td>
               </tr>
             </tbody>

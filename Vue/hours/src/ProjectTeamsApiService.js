@@ -2,7 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 
 const client = axios.create({
-  baseURL: 'https://localhost:7124/api/projectteams',
+  baseURL: 'https://localhost:7279/api/team',
   json: true
 })
 
