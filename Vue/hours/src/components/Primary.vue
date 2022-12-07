@@ -1,10 +1,8 @@
 <template>
     <div>
-        <!-- <h3>Project Details</h3> -->
         <div class="container-fluid mt-4">
       <h1 class="h1" style="color: #28c69f">
         <b-icon icon="people"></b-icon>Project Teams</h1>
-      <!-- <b-alert :show="loading" variant="info">Loading...</b-alert> -->
       <b-row>
         <b-col>
           <table class="table table-striped">
@@ -52,18 +50,28 @@
 <script>
 import Axios from 'axios';
 import api from '@/ProjectTeamsApiService';
+// import api from '@/PrimaryApiService';
 export default {
-    props: ['id'],
+    props: ['projectId'],
     data() {
         return {
-            teams: [],
+            // teams: [],
             records: [],
+            teams: [],
             model:{}
         };
     },
     async created() {
         this.getAll()
       },
+      beforeRouteUpdate() {
+        console.log('Before route update in team model');
+    },watch: {
+        id() {
+            console.log('props model');
+            this.getTeammodel();
+        },
+    },
       methods: {
         async getAll() {
           this.loading = true
@@ -94,15 +102,6 @@ export default {
           await this.getAll()
         },
     },
-    beforeRouteUpdate() {
-        console.log('Before route update in team item');
-    },
-    watch: {
-        id() {
-            console.log('props details');
-            this.getTeamDetails();
-        },
-    },
     // watch: {
     //     $route() {
     //         console.log('watch called');
@@ -117,13 +116,13 @@ export default {
         //     },
         // );
 
-        console.log(this.$route.query);
-        this.getTeamDetails();
+        console.log(this.$route);
+        this.getTeammodel();
     },
     methods: {
-        getTeamDetails() {
-            Axios.get(`teams.json?id=${this.id}`).then((response) => {
-                this.team = response.data[this.id];
+        getTeammodel() {
+            Axios.get(`teams.projectid=${this.projectid}`).then((response) => {
+                this.team = response.data[this.projectid];
             });
         },
     },

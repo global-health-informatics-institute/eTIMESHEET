@@ -34,6 +34,6 @@ export default new Router({
       path: '/primary/:id',
       name: 'Primary',
       component: Primary,
-    }
+    },
   ]
 })

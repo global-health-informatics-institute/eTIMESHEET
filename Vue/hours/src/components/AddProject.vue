@@ -25,7 +25,7 @@
                 <td>{{ project.end }}</td>
                 <td>
                     <router-link :to="`/primary/${project.id}`" class="btn btn-primary"><b-icon icon="eye-fill"></b-icon>Review</router-link>
-                     <!-- <a href="#/team" @click="model.id">Review</a> -->
+                     <a href="#/team">Review</a>
   
                 </td>
               </tr>

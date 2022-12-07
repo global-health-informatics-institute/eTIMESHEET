@@ -23,12 +23,12 @@ namespace AspNetCore.Controllers
       return await _dbContext.Teams.ToListAsync();
     }
 
-    // GET api/foodrecords/5
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Team>> Get(int id)
-    {
-      return await _dbContext.Teams.FindAsync(id);
-    }
+    // // GET api/foodrecords/5
+    // [HttpGet("{id}")]
+    // public async Task<ActionResult<Team>> Get(int id)
+    // {
+    //   return await _dbContext.Teams.FindAsync(id);
+    // }
 
     // POST api/foodrecords
     [HttpPost]
@@ -67,6 +67,12 @@ namespace AspNetCore.Controllers
       await _dbContext.SaveChangesAsync();
       
       return Ok();
+    }
+     // GET api/foodrecords/5
+    [HttpGet("{projectId}")]
+    public async Task<ActionResult<Team>> Get(int projectId)
+    {
+      return await _dbContext.Teams.FindAsync(projectId);
     }
   }
 }
