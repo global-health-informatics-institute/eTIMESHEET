@@ -17,7 +17,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="record in teams" :key="record.id">
+              <tr v-for="record in records" :key="record.projectid">
                 <td>{{ record.id }}</td>
                 <td>{{ record.projectId}}</td>
                 <td>{{ record.member}}</td>
@@ -52,12 +52,13 @@ import Axios from 'axios';
 import api from '@/ProjectTeamsApiService';
 // import api from '@/PrimaryApiService';
 export default {
-    props: ['projectId'],
+    // props: ['projectId'],
     data() {
         return {
             // teams: [],
+            projectId: [],
             records: [],
-            teams: [],
+            // teams: [],
             model:{}
         };
     },
@@ -102,19 +103,19 @@ export default {
           await this.getAll()
         },
     },
-    // watch: {
-    //     $route() {
-    //         console.log('watch called');
-    //         this.getPostDetails();
-    //     },
-    // },
+    watch: {
+        $route() {
+            console.log('watch called');
+            this.getTeams();
+        },
+    },
     created() {
-        // this.$watch(
-        //     () => this.$route.params,
-        //     () => {
-        //         this.getPostDetails();
-        //     },
-        // );
+        this.$watch(
+            () => this.$route.params,
+            () => {
+                this.getTeams();
+            },
+        );
 
         console.log(this.$route);
         this.getTeammodel();

@@ -33,6 +33,8 @@ export default new Router({
     {
       path: '/primary/:id',
       name: 'Primary',
+      // props:'projectId',
+      alias: 'Primary',
       component: Primary,
     },
   ]
