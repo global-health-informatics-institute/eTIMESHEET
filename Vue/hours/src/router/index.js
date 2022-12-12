@@ -36,6 +36,7 @@ export default new Router({
       // props:'projectId',
       alias: 'Primary',
       component: Primary,
+      // query: 'select*from primay, where projectId=1'
     },
   ]
 })

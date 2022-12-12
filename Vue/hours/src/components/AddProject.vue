@@ -65,7 +65,6 @@
   
   <script>
     import api from '@/AddProjectApiService';
-  
     export default {
       data() {
         return {

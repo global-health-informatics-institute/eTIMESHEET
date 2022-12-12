@@ -49,8 +49,8 @@
 
 <script>
 import Axios from 'axios';
-import api from '@/ProjectTeamsApiService';
-// import api from '@/PrimaryApiService';
+// import api from '@/ProjectTeamsApiService';
+import api from '@/PrimaryApiService';
 export default {
     // props: ['projectId'],
     data() {

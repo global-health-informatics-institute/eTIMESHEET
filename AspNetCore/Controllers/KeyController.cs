@@ -17,10 +17,16 @@ namespace AspNetCore.Controllers
     }
 
     // GET api/foodrecords/5
-    [HttpGet("{ProjectId}")]
-    public async Task<ActionResult<Team>> Get(int ProjectIdid)
+    [HttpGet]
+    public async Task<ActionResult<List<Team>>> Get()
     {
-      return await _dbContext.Teams.FindAsync(ProjectIdid);
+      return await _dbContext.Teams.ToListAsync();
+    }
+
+    [HttpGet("{ProjectId}")]
+    public async Task<ActionResult<Team>> Get(int ProjectId)
+    {
+      return await _dbContext.Teams.FindAsync(ProjectId);
     }
   }
 }

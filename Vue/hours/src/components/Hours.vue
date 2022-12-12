@@ -10,6 +10,7 @@
                 <th>ID</th>
                 <th>Member ID</th>
                 <th>Task</th>
+                <th>Description</th>
                 <th>Time Spent</th>
                 <th>Date</th>
                 <th>&nbsp;</th>
@@ -20,6 +21,7 @@
                 <td>{{ record.id }}</td>
                 <td>{{ record.teamId }}</td>
                 <td>{{ record.task }}</td>
+                <td>{{ record.description }}</td>
                 <td>{{ record.hours }} hrs {{ record.minutes }} mins</td>
                 <td> {{ record.date }}</td>
                 <td class="text-right">
@@ -41,6 +43,9 @@
               <b-form-group label="Task">
                 <b-form-input type="text" v-model="model.task"></b-form-input>
               </b-form-group>
+              <b-form-group label="Description">
+                <b-form-input type="text" v-model="model.description"></b-form-input>
+              </b-form-group>
               <b-form-group label="Hours">
                 <b-form-input v-model="model.hours"  type="number" class="form-control"></b-form-input>
               </b-form-group>
@@ -48,7 +53,7 @@
                 <b-form-input v-model="model.minutes"  type="number" class="form-control"></b-form-input>
               </b-form-group>
               <b-form-group label="Date" style="color: #28c69f">
-                <b-form-input rows="4" v-model="model.date" type="date"></b-form-input>
+                <b-form-input v-model="model.date" class="today" type="date"></b-form-input>
               </b-form-group>
               <!-- <b-form-group label="Total" v-model="model.total">
                 <div>{{ total }}</div>
@@ -64,8 +69,8 @@
   </template>
   
   <script>
+  // let today = new Date();
     import api from '@/HoursApiService';
-  
     export default {
       data() {
         return {

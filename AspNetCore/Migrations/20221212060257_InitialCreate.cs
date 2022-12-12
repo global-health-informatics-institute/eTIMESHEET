@@ -17,8 +17,8 @@ namespace aspnetcore.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: true),
                     Coordinator = table.Column<string>(type: "TEXT", nullable: true),
-                    Start = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    End = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    Start = table.Column<DateOnly>(type: "TEXT", nullable: false),
+                    End = table.Column<DateOnly>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -55,8 +55,8 @@ namespace aspnetcore.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     ProjectId = table.Column<int>(type: "INTEGER", nullable: false),
                     Member = table.Column<string>(type: "TEXT", nullable: true),
-                    Start = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    End = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    Start = table.Column<DateOnly>(type: "TEXT", nullable: false),
+                    End = table.Column<DateOnly>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -77,9 +77,10 @@ namespace aspnetcore.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     TeamId = table.Column<int>(type: "INTEGER", nullable: false),
                     Task = table.Column<string>(type: "TEXT", nullable: true),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
                     Hours = table.Column<int>(type: "INTEGER", nullable: false),
                     Minutes = table.Column<int>(type: "INTEGER", nullable: false),
-                    Date = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    Date = table.Column<DateOnly>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

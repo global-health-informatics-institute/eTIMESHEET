@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace aspnetcore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221206102408_InitialCreate")]
+    [Migration("20221212060257_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,10 @@ namespace aspnetcore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateOnly>("Date")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Hours")
@@ -81,13 +84,13 @@ namespace aspnetcore.Migrations
                     b.Property<string>("Coordinator")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("End")
+                    b.Property<DateOnly>("End")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("Start")
+                    b.Property<DateOnly>("Start")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -101,7 +104,7 @@ namespace aspnetcore.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("End")
+                    b.Property<DateOnly>("End")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Member")
@@ -110,7 +113,7 @@ namespace aspnetcore.Migrations
                     b.Property<int>("ProjectId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Start")
+                    b.Property<DateOnly>("Start")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
