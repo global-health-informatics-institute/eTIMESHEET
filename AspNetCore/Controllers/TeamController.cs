@@ -63,7 +63,7 @@ namespace AspNetCore.Controllers
       var entity = await _dbContext.Teams.FindAsync(id);
 
       _dbContext.Teams.Remove(entity);
-      
+       
       await _dbContext.SaveChangesAsync();
       
       return Ok();
@@ -72,7 +72,10 @@ namespace AspNetCore.Controllers
     [HttpGet("{projectId}")]
     public async Task<ActionResult<Team>> Get(int projectId)
     {
-      return await _dbContext.Teams.FindAsync(projectId);
+      // return await _dbContext.Teams.FindAsync(projectId).Where(id => id.project == projectId);
+        // return await _dbContext.Teams..Where(x => x.ProjectId == projectId);
+        return await _dbContext.Teams.FindAsync(projectId);
+
     }
   }
 }

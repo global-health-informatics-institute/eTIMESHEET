@@ -11,13 +11,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace aspnetcore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221212060257_InitialCreate")]
+    [Migration("20221215071504_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.10");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
 
             modelBuilder.Entity("AspNetCore.Hour", b =>
                 {
@@ -40,39 +40,9 @@ namespace aspnetcore.Migrations
                     b.Property<string>("Task")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("TeamId")
-                        .HasColumnType("INTEGER");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("TeamId");
 
                     b.ToTable("Hours");
-                });
-
-            modelBuilder.Entity("AspNetCore.Key", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("End")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Member")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("ProjectId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("Start")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProjectId");
-
-                    b.ToTable("Key");
                 });
 
             modelBuilder.Entity("AspNetCore.Project", b =>
@@ -98,6 +68,23 @@ namespace aspnetcore.Migrations
                     b.ToTable("Projects");
                 });
 
+            modelBuilder.Entity("AspNetCore.ProjectTeam", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ProjectId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TeamId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProjectTeams");
+                });
+
             modelBuilder.Entity("AspNetCore.Team", b =>
                 {
                     b.Property<int>("Id")
@@ -110,50 +97,29 @@ namespace aspnetcore.Migrations
                     b.Property<string>("Member")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("ProjectId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateOnly>("Start")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProjectId");
-
                     b.ToTable("Teams");
                 });
 
-            modelBuilder.Entity("AspNetCore.Hour", b =>
+            modelBuilder.Entity("AspNetCore.TeamMember", b =>
                 {
-                    b.HasOne("AspNetCore.Team", "Team")
-                        .WithMany()
-                        .HasForeignKey("TeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
 
-                    b.Navigation("Team");
-                });
+                    b.Property<int>("HourId")
+                        .HasColumnType("INTEGER");
 
-            modelBuilder.Entity("AspNetCore.Key", b =>
-                {
-                    b.HasOne("AspNetCore.Project", "Project")
-                        .WithMany()
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<int>("TeamId")
+                        .HasColumnType("INTEGER");
 
-                    b.Navigation("Project");
-                });
+                    b.HasKey("Id");
 
-            modelBuilder.Entity("AspNetCore.Team", b =>
-                {
-                    b.HasOne("AspNetCore.Project", "Project")
-                        .WithMany()
-                        .HasForeignKey("ProjectId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Project");
+                    b.ToTable("TeamMembers");
                 });
 #pragma warning restore 612, 618
         }

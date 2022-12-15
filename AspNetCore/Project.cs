@@ -9,6 +9,5 @@ namespace AspNetCore
   public string? Coordinator { get; set; }
   public DateOnly Start { get; set; }
   public DateOnly End { get; set; }
-  // public virtual Team Team { get; set; }=null!;
   }
 }

@@ -66,11 +66,11 @@ export default {
         this.getAll()
       },
       beforeRouteUpdate() {
-        console.log('Before route update in team model');
+        console.log('Before route update in key model');
     },watch: {
         id() {
             console.log('props model');
-            this.getTeammodel();
+            this.getKeymodel();
         },
     },
       methods: {
@@ -106,24 +106,24 @@ export default {
     watch: {
         $route() {
             console.log('watch called');
-            this.getTeams();
+            this.getKeys();
         },
     },
     created() {
         this.$watch(
             () => this.$route.params,
             () => {
-                this.getTeams();
+                this.getKeys();
             },
         );
 
         console.log(this.$route);
-        this.getTeammodel();
+        this.getKeymodel();
     },
     methods: {
-        getTeammodel() {
-            Axios.get(`teams.projectid=${this.projectid}`).then((response) => {
-                this.team = response.data[this.projectid];
+        getKeymodel() {
+            Axios.get(`keys.projectid=${this.projectid}`).then((response) => {
+                this.key = response.data[this.projectid];
             });
         },
     },

@@ -6,9 +6,10 @@ namespace AspNetCore {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     { }
 
-    public DbSet<Project> Projects { get; set; } = null!;
-    public DbSet<Team> Teams { get; set; } = null!;
-    public DbSet<Hour> Hours { get; set; } = null!;
-    public DbSet<Key> Key { get; set; } = null!;
+    public DbSet<Project> Projects { get; set; }
+    public DbSet<Team> Teams { get; set; }
+    public DbSet<Hour> Hours { get; set; }
+    public DbSet<ProjectTeam> ProjectTeams { get; set; }
+    public DbSet<TeamMember> TeamMembers { get; set; }
   }
 }

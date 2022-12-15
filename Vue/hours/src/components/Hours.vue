@@ -44,7 +44,7 @@
                 <b-form-input type="text" v-model="model.task"></b-form-input>
               </b-form-group>
               <b-form-group label="Description">
-                <b-form-input type="text" v-model="model.description"></b-form-input>
+                <b-form-textarea type="text" v-model="model.description"></b-form-textarea>
               </b-form-group>
               <b-form-group label="Hours">
                 <b-form-input v-model="model.hours"  type="number" class="form-control"></b-form-input>
