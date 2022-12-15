@@ -9,7 +9,6 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Project</th>
                 <th>Member Name</th>
                 <th>Member From</th>
                 <th>Member To</th>
@@ -19,7 +18,6 @@
             <tbody>
               <tr v-for="record in records" :key="record.id">
                 <td>{{ record.id }}</td>
-                <td>{{ record.projectId}}</td>
                 <td>{{ record.member}}</td>
                 <td>{{ record.start }}</td>
                 <td>{{ record.end }}</td>
@@ -48,13 +46,13 @@
                   <option value="3">Open O2</option>
                 </b-form-select>
               </b-form-group> -->
-              <b-form-group label="Project" style="color: #28c69f">
+              <!-- <b-form-group label="Project" style="color: #28c69f">
               <b-form-select label="Select Project" v-model="model.projectId">              
                   <option value="1">Informatics</option>
                   <option value="2">Oxygen Alliance</option>
                   <option value="3">Open O2</option>
                 </b-form-select>
-                </b-form-group>
+                </b-form-group> -->
               <b-form-group label="Member Name" style="color: #28c69f">
                 <b-form-input type="text" v-model="model.member"></b-form-input>
               </b-form-group>

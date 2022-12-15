@@ -12,7 +12,6 @@
                 <th>Project Coordinator</th>
                 <th>Start Date</th>
                 <th>End Date</th>
-                <th>Details</th>
                 <th>&nbsp;</th>
               </tr>
             </thead>

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 
 const client = axios.create({
-  baseURL: 'https://localhost:7279/api/hour',
+  baseURL: 'https://localhost:7190/api/hour',
   json: true
 })
 
