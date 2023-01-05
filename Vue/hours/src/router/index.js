@@ -5,6 +5,7 @@ import Hours from '@/components/Hours'
 import AddProject from '@/components/AddProject'
 import Team from '@/components/Team'
 import Primary from '@/components/Primary'
+import Report from '@/components/Report'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/team',
       name: 'Team',
       component: Team,
+    },
+    {
+      path: '/report',
+      name: 'Report',
+      component: Report,
     },
     {
       path: '/primary/:id',

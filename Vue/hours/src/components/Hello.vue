@@ -32,13 +32,13 @@
             </div> 
             </form>
           </main>
-      <b-footer style="color: white; position:relative;">
+      <!-- <b-footer style="color: white; position:relative;">
         <b-row>
           Global Health Informatics Institute
           <b-col> <p>Area 3/719 Off Beit Road, Lilongwe, Malawi</p> Phone: +265 999 947 966 / +265 995 084 444</b-col>
           <b-col sm="auto"><p>Post Office Box X111, Crossroads</p> Lilongwe, Malawi</b-col>
         </b-row>
-      </b-footer>
+      </b-footer> -->
     </div> 
   
   </template>
@@ -50,13 +50,13 @@
   </script>
   
   <style>
-  b-footer { 
+  /* b-footer { 
   margin-top: 80px;
   display: block; 
   padding: 0 16px 0 24px;
   background-color: #28C69F; 
   height: 100px; 
-  } 
+  }  */
   body {
     margin: 0;
   }

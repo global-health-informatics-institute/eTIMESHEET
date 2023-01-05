@@ -30,6 +30,8 @@
     </header>
     <main>
       <div>
+        <!-- <SideBar />
+  <SideBarRight />
         <div id="mySidenav" class="sidenav">
           <a href="#/" id="about"><b-icon icon="house" align="left"></b-icon>eTimesheet</a>
           <br>
@@ -37,8 +39,30 @@
           <br>
           <a href="#/team" id="projects"><b-icon icon="diagram-3" align="left"></b-icon>Teams</a>
           <br>
-          <a href="#/hours" id="contact"><b-icon icon="clipboard" align="left"></b-icon>Hours</a>
-        </div>
+          <a href="#/hours" id="contact"><b-icon icon="clipboard" align="left"></b-icon>Tasks</a>
+          <br>
+          <a href="#/report" id="report">Reports</a>
+        </div> -->
+
+        <nav id="sidebar">
+          <ul>
+            <li>
+              <a href="#/"><span>Home</span></a>
+            </li>
+            <li>
+              <a href="#/add-project"><b-icon icon="house" align="left" height="28" width="28"></b-icon><span>Project</span></a>
+            </li>
+            <li>
+              <a href="#/team"><span>Teams</span></a>
+            </li>
+            <li>
+              <a href="#/hours"><span>Task</span></a>
+            </li>
+            <li>
+              <a href="#/report"><span>Reports</span></a>
+            </li>
+          </ul>
+        </nav>
         </div>
       <router-view></router-view>
     </main> 
@@ -78,6 +102,47 @@ main {
   margin-top: 40px;
 }
 
+*{
+  padding: 0;
+}
+
+nav{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  width: 78px;
+  overflow: hidden;
+  transition: width 0.2s linear;
+  background: #28C69F;
+}
+
+ul{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;  
+}
+
+li a{
+  width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-decoration: none;
+  padding: 0;
+}
+
+a:hover{
+  background: #eee;
+}
+
+nav:hover{
+
+  width: 285px;
+  transition: all 0.5s ease;
+}
 header {
   margin: 0;
   height: 56px;
@@ -136,6 +201,12 @@ header span {
 #contact {
   margin-top: 24px;
   top: 240px;
+  background-color: #28C69F /* Light Black */
+}
+
+#report {
+  margin-top: 32px;
+  top: 300px;
   background-color: #28C69F /* Light Black */
 }
 

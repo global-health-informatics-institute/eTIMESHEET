@@ -51,11 +51,12 @@
                 <b-form-input v-model="model.minutes"  type="number" class="form-control"></b-form-input>
               </b-form-group>
               <b-form-group label="Date" style="color: #28c69f">
-                <b-form-input v-model="model.date" type="date"></b-form-input>
+                <b-form-input v-model="model.date"  type="date" class="form-control"></b-form-input>
               </b-form-group>
               <!-- <b-form-group label="Total" v-model="model.total">
                 <div>{{ total }}</div>
               </b-form-group> -->
+              <br>
               <div>
                 <b-btn type="submit" variant="success">Save Record</b-btn>
               </div>
@@ -67,6 +68,7 @@
   </template>
   
   <script>
+   let currDate = new Date().toLocaleDateString('en-GB');
     import api from '@/HoursApiService';
     export default {
       data() {
