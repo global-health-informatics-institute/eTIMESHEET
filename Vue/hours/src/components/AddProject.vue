@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid mt-4">
       <h1 class="h1">Projects</h1>
-      <b-alert :show="loading" variant="info">Loading...</b-alert>
+      <!-- <b-alert :show="loading" variant="info">Loading...</b-alert> -->
       <b-row>
        <b-col>
           <table class="table table-striped">
@@ -67,7 +67,7 @@
     export default {
       data() {
         return {
-          loading: false,
+          // loading: false,
           projects: [],
           model: {}
         };

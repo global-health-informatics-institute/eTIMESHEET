@@ -1,69 +1,69 @@
 <template>
-  <div id="app">
+  <div id="app" class="is pulled-right">
     <header>
-      <!-- <b-button v-b-toggle.sidebar-no-header> Sidebar</b-button>
+      <div class="is pulled-right">
+    <b-button v-b-toggle.sidebar-no-header><b-icon icon="list"></b-icon> </b-button>  
+    </div>
+  </header>
+  <div>
     <b-sidebar id="sidebar-no-header" aria-labelledby="sidebar-no-header-title" no-header shadow>
       <template #default="{ hide }">
         <div class="p-3">
-          <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-        <b-navbar-brand to="/">eTimesheet</b-navbar-brand>
-        <b-collapse is-nav id="nav-collapse">
-            <b-nav-item to="/add-project">Projects</b-nav-item>
-            <b-nav-item to="team">Teams</b-nav-item>
-            <b-nav-item to="hours">Hours</b-nav-item>
-        </b-collapse>
-          <b-button variant="primary" block @click="hide">Close Sidebar</b-button>
-        </div>
+          <nav class="mb-3">
+            <b-nav vertical>
+              <b-nav-item href="#/" @click="hide">Login</b-nav-item>
+              <b-nav-item href="#/add-project" @click="hide">Projects</b-nav-item>
+              <b-nav-item href="#/team" @click="hide">Teams</b-nav-item>
+              <b-nav-item href="#/hours" @click="hide">Tasks</b-nav-item>
+              <b-nav-item href="#/report" @click="hide">Reports</b-nav-item>
+              <b-nav-item href="#/details" @click="hide">Details</b-nav-item>
+            </b-nav>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <b-button variant="primary" block @click="hide"><b-icon icon="x-lg"></b-icon> </b-button>
+          </nav>
+            </div>
       </template>
-    </b-sidebar> -->
-      <!-- <b-navbar vertical-variation>
-        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-        <b-navbar-brand to="/">eTimesheet</b-navbar-brand>
-        <b-collapse is-nav id="nav-collapse">
-          <b-navbar-nav>
-            <b-nav-item to="/add-project">Projects</b-nav-item>
-            <b-nav-item to="team">Teams</b-nav-item>
-            <b-nav-item to="hours">Hours</b-nav-item>
-          </b-navbar-nav>
-        </b-collapse>
-      </b-navbar> -->
-    </header>
+    </b-sidebar>
+  </div>
     <main>
-      <div>
-        <!-- <SideBar />
-  <SideBarRight />
-        <div id="mySidenav" class="sidenav">
-          <a href="#/" id="about"><b-icon icon="house" align="left"></b-icon>eTimesheet</a>
-          <br>
-          <a href="#/add-project" id="blog"><b-icon icon="folder-plus" align="left"></b-icon>Projects</a>
-          <br>
-          <a href="#/team" id="projects"><b-icon icon="diagram-3" align="left"></b-icon>Teams</a>
-          <br>
-          <a href="#/hours" id="contact"><b-icon icon="clipboard" align="left"></b-icon>Tasks</a>
-          <br>
-          <a href="#/report" id="report">Reports</a>
-        </div> -->
-
+      
+      <!-- <div>
         <nav id="sidebar">
           <ul>
             <li>
-              <a href="#/"><span>Home</span></a>
+              <a href="#/"><b-icon icon="house" align="left" height="28" width="28"></b-icon><span>Home</span></a>
             </li>
             <li>
-              <a href="#/add-project"><b-icon icon="house" align="left" height="28" width="28"></b-icon><span>Project</span></a>
+              <a href="#/add-project"><b-icon icon="folder-plus" align="left" height="28" width="28"></b-icon><span mode="push" position="right">Project</span></a>
             </li>
             <li>
-              <a href="#/team"><span>Teams</span></a>
+              <a href="#/team"><b-icon icon="diagram-3" align="left" height="28" width="28"></b-icon><span>Teams</span></a>
             </li>
             <li>
-              <a href="#/hours"><span>Task</span></a>
+              <a href="#/hours"><b-icon icon="clipboard" align="left" height="28" width="28"></b-icon><span>Task</span></a>
             </li>
             <li>
               <a href="#/report"><span>Reports</span></a>
             </li>
+            <li>
+              <a href="#/details"><b-icon icon="clipboard" align="left" height="28" width="28"></b-icon><span>details</span></a>
+            </li>
           </ul>
         </nav>
-        </div>
+        </div> -->
       <router-view></router-view>
     </main> 
   </div>
@@ -112,14 +112,14 @@ nav{
   bottom: 0;
   height: 100%;
   left: 0;
-  width: 78px;
+  width: 320px;
   overflow: hidden;
-  transition: width 0.2s linear;
+  transition: push 0.2s linear ;
   background: #28C69F;
 }
 
 ul{
-  height: 100%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;  
@@ -139,10 +139,10 @@ a:hover{
 }
 
 nav:hover{
-
-  width: 285px;
+  width: 320px;
   transition: all 0.5s ease;
 }
+
 header {
   margin: 0;
   height: 56px;
@@ -161,26 +161,17 @@ header span {
   box-sizing: border-box;
   padding-top: 16px;
   background-color: #28C69F; ;
+  text-align: right;
 }
 
-/* Style the links inside the sidenav */
-#mySidenav a {
-  position: absolute; /* Position them relative to the browser window */
-  left: -155px; /* Position them outside of the screen */
-  transition: 0.3s; /* Add transition on hover */
-  padding: 15px; /* 15px padding */
-  width: 180px; /* Set a specific width */
-  text-decoration: none; /* Remove underline */
-  font-size: 20px; /* Increase font size */
-  color: white; /* White text color */
-  border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
-}
+
 
 #mySidenav a:hover {
-  left: 0; /* On mouse-over, make the elements appear as they should */
+  left: 0; /* On mouse-over, make the elements appear as they should 
 }
 
 /* The about link: 20px from the top with a green background */
+}
 #about {
   top: 60px;
   background-color: #28C69F;
@@ -207,7 +198,13 @@ header span {
 #report {
   margin-top: 32px;
   top: 300px;
-  background-color: #28C69F /* Light Black */
+  background-color: #28C69F 
+}
+
+#details {
+  margin-top: 40px;
+  top: 380px;
+  background-color: #28C69F
 }
 
 </style>
