@@ -147,8 +147,8 @@ header {
   margin: 0;
   height: 56px;
   padding: 0 16px 0 24px;
-  background-color: #28C69F; ;
-  color: #28C69F; ;
+  background-color: #DC143C; ;
+  color: #DC143C; ;
 }
 
 header span {
