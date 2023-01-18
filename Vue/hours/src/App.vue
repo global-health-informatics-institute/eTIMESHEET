@@ -97,10 +97,10 @@ body {
   color: #28C69F; ;
 }
 
-main {
+/* main {
   text-align: center;
   margin-top: 40px;
-}
+} */
 
 *{
   padding: 0;
