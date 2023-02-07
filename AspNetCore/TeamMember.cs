@@ -7,5 +7,6 @@ namespace AspNetCore
   public int Id { get; set; }
   public int TeamId { get; set; } 
   public int HourId { get; set; }
+  public Team Team {get; set;}
   }
 }

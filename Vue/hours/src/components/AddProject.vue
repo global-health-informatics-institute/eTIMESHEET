@@ -1,10 +1,9 @@
 <template>
     <div class="container-fluid mt-4">
-      <h1 class="h1">Projects</h1>
+      <h1 class="h1">PROJECTS</h1>
       <!-- <b-alert :show="loading" variant="info">Loading...</b-alert> -->
-      <b-row>
-       <b-col>
-          <table class="table table-striped">
+      <b-row>      
+          <!-- <table class="table table-striped">
             <thead>
               <tr>
                 <th>Id</th>
@@ -29,8 +28,20 @@
                 </td>
               </tr>
             </tbody>
-          </table>
-        </b-col>
+          </table> -->
+          <div>
+            <center>
+              <b-card-group deck>
+            <b-card v-for="project in projects" :key="project.id"
+            style="max-width: 20rem; margin-top:10px;">
+              <b-card-title style="color:black">{{ project.name }}</b-card-title>
+              <b-card-text style="color:black">{{ project.coordinator }}</b-card-text>
+              <b-card-text style="color:black">From: {{ project.start }}</b-card-text>
+              <b-card-text style="color:black">To: {{ project.end }}</b-card-text>
+            </b-card>
+          </b-card-group>
+          </center>
+          </div>
       </b-row>
       <br>
       <br>

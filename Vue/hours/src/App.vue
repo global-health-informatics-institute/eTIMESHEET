@@ -97,10 +97,10 @@ body {
   color: #28C69F; ;
 }
 
-/* main {
+main {
   text-align: center;
   margin-top: 40px;
-} */
+}
 
 *{
   padding: 0;
@@ -116,6 +116,9 @@ nav{
   overflow: hidden;
   transition: push 0.2s linear ;
   background: #28C69F;
+}
+.nav collapsed{
+left: -260px;
 }
 
 ul{
@@ -135,7 +138,8 @@ li a{
 }
 
 a:hover{
-  background: #eee;
+  background: #2e3d35;
+  width: 100%;
 }
 
 nav:hover{
@@ -174,36 +178,42 @@ header span {
 }
 #about {
   top: 60px;
+  width: 100%;
   background-color: #28C69F;
 }
 
 #blog {
   margin-top: 8px;
   top: 120px;
+  width: 100%;
   background-color: #28C69F; /* Blue */
 }
 
 #projects {
   margin-top: 16px;
   top: 180px;
+  width: 100%;
   background-color: #28C69F; /* Red */
 }
 
 #contact {
   margin-top: 24px;
   top: 240px;
+  width: 100%;
   background-color: #28C69F /* Light Black */
 }
 
 #report {
   margin-top: 32px;
   top: 300px;
+  width: 100%;
   background-color: #28C69F 
 }
 
 #details {
   margin-top: 40px;
   top: 380px;
+  width: 100%;
   background-color: #28C69F
 }
 

@@ -4,7 +4,7 @@
       <!-- <b-alert :show="loading" variant="info">Loading...</b-alert> -->
       <b-row>
         <b-col>
-          <table class="table table-striped">
+          <!-- <table class="table table-striped">
             <thead>
               <tr>
                 <th>ID</th>
@@ -28,7 +28,33 @@
                 </td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
+
+          <!-- <div v-for="record in records" :key="record.id">
+            <b-row>
+              <span>                
+                <b-alert style="width: 80%;" variant="success" show > <left><b-badge style="color:black">{{ record.task }}</b-badge></left>  &nbsp;{{ record.description }} &nbsp; &nbsp; {{ record.hours }} hrs {{ record.minutes }} mins</b-alert>
+              </span>
+            </b-row>     
+        </div> -->
+        <div>
+          <b-card v-for="record in records" :key="record.id"
+          style="max-width: 50rem; margin-top:10px;">
+            <b-card-title style="color:black">{{ record.task }}</b-card-title>
+            <hr>
+            <b-row> <b-card-text>{{ record.description }} </b-card-text> 
+              <b-card-text >{{ record.hours }} hrs {{ record.minutes }} mins</b-card-text></b-row>
+          </b-card>
+        </div>
+          <!-- <div>
+            <b-container class="bv-example-row">
+            <b-row v-for="record in records" :key="record.id">
+              <b-col>{{ record.task }}</b-col>
+              <b-col>{{ record.description }}</b-col>
+              <b-col> {{ record.hours }} hrs {{ record.minutes }} mins</b-col>
+            </b-row>
+            </b-container>
+          </div> -->
           <br>
          <br>
             <b-button v-b-modal.modal-1>Fill Timesheet</b-button>

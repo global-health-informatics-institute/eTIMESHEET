@@ -11,6 +11,8 @@ import { BSidebar } from 'bootstrap-vue'
 
 import router from './router'
 
+import 'boxicons'
+
 Vue.use(BootstrapVue)
 
 Vue.use(BootstrapVueIcons)

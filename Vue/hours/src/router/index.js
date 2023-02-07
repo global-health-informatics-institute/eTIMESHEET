@@ -7,6 +7,7 @@ import Team from '@/components/Team'
 import Primary from '@/components/Primary'
 import Report from '@/components/Report'
 import Details from '@/components/Details'
+import Project from '@/components/Project'
 
 Vue.use(Router)
 
@@ -42,6 +43,11 @@ export default new Router({
      name: 'Details',
      component: Details,
     },
+    {
+      path: '/project',
+      name: 'Project',
+      component: Project,
+     },
     {
       path: '/primary/:id',
       name: 'Primary',
